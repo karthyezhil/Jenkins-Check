@@ -13,7 +13,7 @@ import zero.security.pages.LoginPage;
 public class EndtoEndTesting extends BaseClass {
 
 	//validating logIn Functionality
-	@Test(priority = 1, dataProviderClass = ReadData.class, dataProvider = "logInTestData")
+	@Test(groups = { "Sanity"},priority = 1, dataProviderClass = ReadData.class, dataProvider = "logInTestData")
 	private void ValidatingLoginFunctionality(String username, String password) throws InterruptedException {
 		String failureReason = "";
 		String profileDetails = "";
@@ -34,7 +34,7 @@ public class EndtoEndTesting extends BaseClass {
 	}
 
 	// validating logOut Functionality
-	@Test(priority = 2, dataProviderClass = ReadData.class, dataProvider = "logOutTestData")
+	@Test(groups = { "Sanity"},priority = 2, dataProviderClass = ReadData.class, dataProvider = "logOutTestData")
 	private void validatingLogoutFunctionality(String username, String password) {
 		CommonFunctions.logInSetup(username, password);
 		LoginPage l = new LoginPage(webDriver);
@@ -47,7 +47,7 @@ public class EndtoEndTesting extends BaseClass {
 	}
 
 	// Validating forgot password functionality
-	@Test(priority = 3)
+	@Test(groups = { "Sanity"},priority = 3)
 	private void ValidatingForgotPasswordFunctionality() {
 		webDriver.get(properties.getProperty("url"));
 		webDriver.findElement(By.xpath("//button[@id='signin_button']")).click();
@@ -59,7 +59,7 @@ public class EndtoEndTesting extends BaseClass {
 	}
 
 	// validating add-payee functionality
-	@Test(priority = 4, dataProviderClass = ReadData.class, dataProvider = "logOutTestData")
+	@Test(groups = { "Sanity"},priority = 4, dataProviderClass = ReadData.class, dataProvider = "logOutTestData")
 	private void addPayeeValidation(String username, String password) {
 		String payeeName = "John";
 		CommonFunctions.logInSetup(username, password);
